@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>YouTube Video Summarizer</title>
+</head>
+<body>
+    <h1>YouTube Video Summarizer</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="youtube_url" placeholder="Enter YouTube URL" size="60" required>
+        <button type="submit">Summarize</button>
+    </form>
+
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    {% if summary %}
+        <h3>Summary:</h3>
+        <p>{{ summary }}</p>
+    {% endif %}
+</body>
+</html>
